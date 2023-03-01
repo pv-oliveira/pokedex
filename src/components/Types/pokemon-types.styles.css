@@ -1,0 +1,19 @@
+.pokemon-type-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+.pokemon-type-button {
+    border: none;
+    padding: 0.25rem 0.5rem ;
+}
+
+.pokemon-type-button.grass {
+    background: #1cd80e;
+}
+
+.pokemon-type-button.poison {
+    background: #f149ff;
+}

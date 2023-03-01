@@ -3,7 +3,7 @@ import Card from "../Card/card.components";
 
 import { PokemonDetail } from "../../details";
 
-import "./card-list.styles.css"
+import "./card-list.styles.scss"
 
 type CardListProps = {
   pokemon: PokemonDetail[];

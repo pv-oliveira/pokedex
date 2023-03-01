@@ -12,13 +12,13 @@ function App() {
   const [pokemonList, setPokemonList] = useState<PokemonDetail[]>([]);
   const [load, setLoad] = useState(false);
 
-  const getAllPokemons = async (initial: number, final: number) => {
+  const getPokemon = async (initial: number, final: number) => {
 
-    const getPokemonUrls = (i: number) => `https://pokeapi.co/api/v2/pokemon/${i}`;
+    const getPokemonUrl = (i: number) => `https://pokeapi.co/api/v2/pokemon/${i}`;
 
     const pokemonPromises = [];
     for (initial; initial <= final; initial++) {
-      pokemonPromises.push(getData<PokemonDetail>(getPokemonUrls(initial)));
+      pokemonPromises.push(getData<PokemonDetail>(getPokemonUrl(initial)));
     }
 
     return await Promise.all(pokemonPromises);
@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const pokemon = await getAllPokemons(1, 151);
+      const pokemon = await getPokemon(1, 80);
       setPokemonList(pokemon);
 
       setLoad(true);
