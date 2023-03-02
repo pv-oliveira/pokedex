@@ -7,7 +7,9 @@
 
 .pokemon-type-button {
     border: none;
-    padding: 0.25rem 0.5rem ;
+    padding: 0.25rem 0.5rem;
+    border-radius: 7px;
+    color: white;
 }
 
 .pokemon-type-button.grass {
@@ -16,4 +18,8 @@
 
 .pokemon-type-button.poison {
     background: #f149ff;
+}
+
+.pokemon-type-button.fire {
+    background: #ff9900;
 }

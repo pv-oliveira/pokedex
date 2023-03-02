@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const pokemon = await getPokemon(1, 80);
+      const pokemon = await getPokemon(1, 151);
       setPokemonList(pokemon);
 
       setLoad(true);
