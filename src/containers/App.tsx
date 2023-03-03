@@ -45,7 +45,7 @@ function App() {
   if (!load) return <h2>loading</h2>;
   return (
     <div className="tc">
-      <h1 className="app-title">Pokedex</h1>
+      {/* <h1 className="app-title">Pokedex</h1> */}
       <SearchBox
         className="pokedex-search-box"
         searchChange={onSearchChange}
