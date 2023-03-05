@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { PokemonDetail } from "../../details";
 import EvolutionComponent from "../Evolution/evolution.components";
 import Modal from "../Modal/modal.components";
 import PokemonTypes from "../Types/pokemon-types.components";
+import { pokemonTypes } from "../../utils/pokemon-types";
 
-import "./card.styles.css";
+import "./card.styles.scss";
+import Header from "../Header/header.component";
 
 type CardProps = {
   pokemon: PokemonDetail;
@@ -13,67 +15,72 @@ type CardProps = {
 
 const Card = ({ pokemon }: CardProps) => {
   const [modalOption, setModalOption] = useState(false);
-
   function handleSubmit() {
-    console.log(pokemon);
     setModalOption(true);
   }
+  const gif =
+    pokemon.sprites.versions?.["generation-v"]["black-white"].animated
+      ?.front_default;
+
+  const [{ color }] = pokemonTypes.filter(
+    (type) => type?.name === pokemon?.types[0]?.type?.name
+  );
 
   return (
     <>
-      <div onClick={handleSubmit} className="card-container">
+      <div
+        onClick={handleSubmit}
+        className="card-container"
+        style={{ backgroundColor: `${color}` }}
+      >
         <img alt="pokemon" src={pokemon.sprites.front_default} />
-        <div>
-          <h2>{pokemon.name.toLocaleUpperCase()} </h2>
-          <p>Number: {pokemon.id}</p>
-        </div>
+        <h2>{pokemon.name.toLocaleUpperCase()} </h2>
       </div>
 
       <Modal parentState={modalOption}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: 'wrap',
-            gap: "100px"
-          }}
-        >
-          <div className="pokemon-data">
-            <img
-              src={pokemon.sprites.other?.dream_world.front_default}
-              alt="pokemon-modal"
-            />
-            {
-              pokemon.id < 10 ? `#00${pokemon.id}` : pokemon.id <= 99 ? `#0${pokemon.id}` : `#${pokemon.id}`
-            }
-            <span className="pokemon-name">
-              {pokemon.name.toLocaleUpperCase()}
-            </span>
-            <span>
-              Peso: {`${pokemon.weight / 10} Kg`} <br />
-              Altura: {`${pokemon.height / 10} M`}
-            </span>
-            <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
-              {pokemon.types.map((type) => (
-                <PokemonTypes type={type.type.name} />
-              ))}
+        <Header buttonClose={() => setModalOption(false)}>
+          <div className="pokemon-modal-container">
+            <div className="pokemon-container">
+              <div className="pokemon-data">
+                
+                <img src={gif} alt="pokemon-modal" />
+                {pokemon.id < 10
+                  ? `#00${pokemon.id}`
+                  : pokemon.id <= 99
+                  ? `#0${pokemon.id}`
+                  : `#${pokemon.id}`}
+                <p className="pokemon-name">
+                  {pokemon.name.toLocaleUpperCase()}
+                </p>
+                <span>
+                  Weight: {`${pokemon.weight / 10} Kg`} <br />
+                  Height: {`${pokemon.height / 10} M`}
+                </span>
+                <div
+                  style={{ display: "flex", flexDirection: "row", gap: "10px" }}
+                >
+                  {pokemon.types.map((type) => (
+                    <PokemonTypes type={type.type.name} />
+                  ))}
+                </div>
+              </div>
+              <div className="pokemon-stats" >
+                <h3>Stats</h3>
+                <ul>
+                  {pokemon.stats.map(({ stat, base_stat }) => (
+                    <>
+                      <li key={base_stat++}>
+                        <span> {stat.name.toLocaleUpperCase()}: </span>{" "}
+                        <span> {base_stat} </span>
+                      </li>
+                    </>
+                  ))}
+                </ul>
+              </div>
             </div>
+            <EvolutionComponent pokemon={pokemon} />
           </div>
-          <div className="pokemon-stats" style={{color: "white"}}>
-            <h3>Stats</h3>
-            <ul>{pokemon.stats.map(({stat, base_stat}) => (<>
-              <li>
-                <span> {stat.name}: </span> <span> {base_stat} </span>
-              </li>
-            </>
-            ))}</ul>
-          </div>
-          <EvolutionComponent
-            pokemon={pokemon}
-           />
-        </div>
-
-        <button onClick={() => setModalOption(false)}>SAIR</button>
+        </Header>
       </Modal>
     </>
   );

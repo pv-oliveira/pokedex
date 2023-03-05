@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import CardList from "../components/CardList/card-list.components";
-import SearchBox from "../components/SearchBox/search-box.components";
+import CardList from "./components/CardList/card-list.components";
+import SearchBox from "./components/SearchBox/search-box.components";
 
-import { getData } from "../utils/data.utils";
-import { PokemonDetail } from "../details";
+import { getData } from "./utils/data.utils";
+import { PokemonDetail } from "./details";
+
+import { getPokemonUrl } from "./api/fetchPokemon";
 
 import "./App.css";
 
@@ -12,15 +14,12 @@ function App() {
   const [pokemonList, setPokemonList] = useState<PokemonDetail[]>([]);
   const [load, setLoad] = useState(false);
 
+  
   const getPokemon = async (initial: number, final: number) => {
-
-    const getPokemonUrl = (i: number) => `https://pokeapi.co/api/v2/pokemon/${i}`;
-
     const pokemonPromises = [];
     for (initial; initial <= final; initial++) {
       pokemonPromises.push(getData<PokemonDetail>(getPokemonUrl(initial)));
     }
-
     return await Promise.all(pokemonPromises);
   };
 
@@ -44,15 +43,15 @@ function App() {
 
   if (!load) return <h2>loading</h2>;
   return (
-    <div className="tc">
-      {/* <h1 className="app-title">Pokedex</h1> */}
+    <>
+      <h1 className="app-title">Pokedex - Kanto</h1>
       <SearchBox
         className="pokedex-search-box"
         searchChange={onSearchChange}
         placeholder="search pokemon"
       />
       <CardList pokemon={filteredPokemon} />
-    </div>
+    </>
   );
 }
 

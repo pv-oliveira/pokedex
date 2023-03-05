@@ -1,4 +1,4 @@
-import "./search-box.styles.css";
+import "./search-box.styles.scss";
 
 type SearchBoxProps = {
   className: string;
