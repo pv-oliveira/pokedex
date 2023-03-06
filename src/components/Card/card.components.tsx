@@ -65,7 +65,7 @@ const Card = ({ pokemon }: CardProps) => {
                 </div>
               </div>
               <div className="pokemon-stats" >
-                <h3>Stats</h3>
+                <h2>Stats</h2>
                 <ul>
                   {pokemon.stats.map(({ stat, base_stat }) => (
                     <>

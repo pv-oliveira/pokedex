@@ -135,7 +135,7 @@ const EvolutionComponent = (pokemon: PokemonProps) => {
     fetchData();
   }, [pokemonChain]);
 
-  if (!pokemonChain.length) return <h2>""</h2>
+  if (!pokemonChain.length) return null
   return (<>
     {/* <PokemonText 
       PokemonText={pokemonSpecie?.flavor_text_entries[0]?.flavor_text}
@@ -169,6 +169,8 @@ const EvolutionComponent = (pokemon: PokemonProps) => {
             )}
             <div className="pokemon-data-dt">
               <img
+                decoding="async"
+                loading="lazy"
                 src={
                   pokemonData.filter((data) => pokemon.name === data.name)[0]
                     ?.sprites.front_default

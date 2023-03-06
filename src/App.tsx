@@ -7,7 +7,7 @@ import { PokemonDetail } from "./details";
 
 import { getPokemonUrl } from "./api/fetchPokemon";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [searchfield, setSearchField] = useState("");
@@ -43,7 +43,7 @@ function App() {
 
   if (!load) return <h2>loading</h2>;
   return (
-    <>
+    <div className="app-container">
       <h1 className="app-title">Pokedex - Kanto</h1>
       <SearchBox
         className="pokedex-search-box"
@@ -51,7 +51,7 @@ function App() {
         placeholder="search pokemon"
       />
       <CardList pokemon={filteredPokemon} />
-    </>
+    </div>
   );
 }
 
