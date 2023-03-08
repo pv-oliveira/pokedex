@@ -32,11 +32,44 @@
   transform: scale(1.05);
 }
 
+.pokemon-modal-container {
+  @media only screen and (max-width:900px) and (min-width:600px) {
+      width: 80vw;
+    }
+  
+    @media only screen and (max-width:599px) {
+      width: 70vw;
+      flex-wrap: nowrap;
+
+      img {
+        width: 20vw;
+        height: 20vw;
+      }
+    }
+}
 .pokemon-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  @media only screen and (max-width:900px) and (min-width:600px) {
+    width: 80vw;
+  }
+
+  @media only screen and (max-width:599px) {
+    width: 70vw;
+    // flex-wrap: nowrap;
+
+    img {
+      width: 25vw !important;
+      height: 25vw !important;
+    }
+
+    ul {
+      gap: 0.3rem !important
+    }
+  }
 }
 
 .pokemon-data {
@@ -50,6 +83,11 @@
   color: white;
   font-family: "Mont-Serrat";
   height: 100%;
+
+
+  @media only screen and (max-width:599px) {
+    margin-bottom: 20px;
+  }
 }
 
 .pokemon-data img {

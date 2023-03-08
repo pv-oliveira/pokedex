@@ -1,5 +1,7 @@
 .modal-screen{
-    display: flex;
+  display: flex;
+  // margin-left: auto;
+  // margin-right: auto;
     flex: 1;
     width: 100vw;
     // background: rgba(0,0,0,.5);
@@ -8,6 +10,16 @@
     left: 0px;
     z-index: 99999999;
     justify-content: center;
+    resize: both;
+    // height: 100%;
+    // overflow-y: scroll;
+
+    // height: 100%;
+    @media only screen and (max-height: 900px) {
+      // background: red;
+      // display: none;
+    }
+
   }
   
   .modal-container{
@@ -16,24 +28,35 @@
     flex-direction: column;
     background: rgba(6,11,40,0.15);
     backdrop-filter: blur(25px);
-    // margin-bottom: 8vh;
+    margin-bottom: 8vh;
     margin-top: 8vh;
     min-width: 60%;
     padding: 35px;
     position: relative;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
     animation-name: fadeUp;
     animation-duration: 0.5s;
-
-    // @media only screen and (max-width:950px) and (min-width:500px) {
-    //   width: 80vw;
-    // }
+    overflow-x: hidden;
+    // margin-left: auto;
+    // margin-right: auto;
+    // margin-top: auto;
+    // margin-bottom: auto;
+    
+    @media only screen and (max-width:900px) and (min-width:600px) {
+      width: 80vw;
+    }
   
-    // @media only screen and (max-width:499px) {
-    //   // grid-template-columns: auto;
-    // }
+    @media only screen and (max-width:599px) {
+      width: 70vw;
+      flex-wrap: nowrap;
+
+      // overflow-y: auto;
+      img {
+        width: 20vw;
+        height: 20vw;
+      }
+    }
   }
   
   // .modal-container span{

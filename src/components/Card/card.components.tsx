@@ -78,9 +78,9 @@ const Card = ({ pokemon }: CardProps) => {
                 </ul>
               </div>
             </div>
-            <EvolutionComponent pokemon={pokemon} />
           </div>
         </Header>
+            <EvolutionComponent pokemon={pokemon} />
       </Modal>
     </>
   );
