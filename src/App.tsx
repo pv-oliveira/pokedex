@@ -7,6 +7,9 @@ import { PokemonDetail } from "./details";
 
 import { getPokemonUrl } from "./api/fetchPokemon";
 
+import pokeLogo from "./assets/dex.png"
+import pk from "./assets/pk.png"
+
 import "./App.scss";
 
 function App() {
@@ -44,7 +47,10 @@ function App() {
   if (!load) return <h2>loading</h2>;
   return (
     <div className="app-container">
-      <h1 className="app-title">Pokedex - Kanto</h1>
+      <div className="poke-logo">
+        {/* <img className="logo-1" src={pk} alt="" /> */}
+        <img className="logo-2" src={pokeLogo} alt="pokedex-name" />
+      </div>
       <SearchBox
         className="pokedex-search-box"
         searchChange={onSearchChange}

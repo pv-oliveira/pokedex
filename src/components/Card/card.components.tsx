@@ -34,6 +34,7 @@ const Card = ({ pokemon }: CardProps) => {
         style={{ backgroundColor: `${color}` }}
       >
         <img alt="pokemon" src={pokemon.sprites.front_default} />
+        <h4>#{pokemon.id}</h4>
         <h2>{pokemon.name.toLocaleUpperCase()} </h2>
       </div>
 

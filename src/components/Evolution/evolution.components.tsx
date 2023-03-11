@@ -125,7 +125,7 @@ const EvolutionComponent = (pokemon: PokemonProps) => {
       setPokemonChain(pokemonChain);
     }
     fetchData();
-  }, []);
+  }, [getPokemonChain, pokemon]);
 
   useEffect(() => {
     async function fetchData() {
@@ -147,13 +147,14 @@ const EvolutionComponent = (pokemon: PokemonProps) => {
             {index !== 0 && (
               <div className="evolve-data">
                 {"=>"}
-                {pokemon.level && <p>(Level {pokemon.level})</p>}
-                {pokemon.item && (
+                {pokemon.level && <p className="level-up">(Level {pokemon.level})</p>}
+                {pokemon.item && ( <>
+                  <p>{pokemon.item.toUpperCase()}</p>
                   <img
                     alt={pokemon.item}
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${pokemon.item}.png`}
                   />
-                )}
+               </>)}
                 {pokemon.held_item && (
                   <img
                     alt={pokemon.held_item}
@@ -164,7 +165,7 @@ const EvolutionComponent = (pokemon: PokemonProps) => {
                   !pokemon.item &&
                   !pokemon.held_item &&
                   pokemon.trigger === "level-up" && <p>(High Friendship)</p>}
-                {pokemon.trigger && <p>(Evolves from {pokemon.trigger})</p>}
+                {pokemon.trigger && <p className="evolves-from">(Evolves from {pokemon.trigger})</p>}
               </div>
             )}
             <div className="pokemon-data-dt">

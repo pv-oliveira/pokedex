@@ -84,30 +84,47 @@
   font-family: "Mont-Serrat";
   height: 100%;
 
+  img {
+    width: 150px;
+    height: 150px;
+  }
 
   @media only screen and (max-width:599px) {
     margin-bottom: 20px;
-  }
-}
 
-.pokemon-data img {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 2em;
+    img {
+      width: 150px !important;
+      height: 150px !important;
+    }
+  }
 }
 
 .pokemon-stats {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 300px;
   color: #ffffff;
+  height: auto;
+
+  @media only screen and (max-width: 599px) {
+    font-size: 80%;
+
+    p {
+      display: none;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
 }
 
 .pokemon-stats ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 0.8rem;
   list-style: none;
   padding: 0;
 }
