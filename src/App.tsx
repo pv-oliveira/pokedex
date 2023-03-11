@@ -44,7 +44,7 @@ function App() {
     return pokemon.name.toLowerCase().includes(searchfield.toLowerCase());
   });
 
-  if (!load) return <h2>loading</h2>;
+  if (!load) return <p>loading...</p>;
   return (
     <div className="app-container">
       <div className="poke-logo">
