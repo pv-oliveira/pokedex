@@ -1,15 +1,4 @@
 # README
-
-<p align="center">        
-    <a href='#Tecnologias'>Tecnologias</a>
-    <a href='#Projeto'>Projetos</a>
-    <a href='#Como Executar'>Como executar</a>
-</p>
-
-
-<p align="center">Esse projeto é desafio Front-End para o processo seletivo.</p>
-
-
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
