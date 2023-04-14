@@ -25,4 +25,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Instale as dependências ao estar dentro de cada uma delas com `npm install`
 - Inicie o servidor com `npm run start`
 
-Agora você pode acessar [Host](http://127.0.0.1:5173/) do seu navegador.
+Agora você pode acessar [Host](http://localhost:3000/) do seu navegador.
